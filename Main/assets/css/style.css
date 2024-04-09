@@ -1,0 +1,188 @@
+/* Create CSS variables at the root of the document to be used throughout the style sheet */
+:root {
+  /* --white: #fffffffd; */
+  /* --dark-blue: #0a6ef0; */
+  /* You can use it with any value that is repeated throughout the sheet */
+  /* --border-radius: 80px; */
+    --white: #ffffff;
+    --dark-blue: #2b2c30; /* Cambia esto por el color exacto del diseño */
+    --light-blue: #6b80a3; /* Un ejemplo, ajusta según tu diseño */
+    --accent-color: #d79722; /* Un color de acento que veas en el diseño */
+    --font-family: 'Open Sans', sans-serif; /* Cambia por la fuente del diseño */
+  
+}
+
+body {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+h1, h2 {
+  font-family: var(--font-family); /* Usa la misma fuente para coherencia */
+  font-weight: bold; /* Hace que los títulos sean más gruesos */
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+header {
+  /* padding: 40px; */
+  /* text-align: center; */
+  /* Refer to CSS values by the name of the custom property we assigned it */
+  /* background: var(--dark-blue); */
+  /* color: var(--white); */
+
+    padding: 20px; /* Ajusta según tu diseño */
+    text-align: left; /* Alineación del texto a la izquierda */
+    background: var(--dark-blue);
+    color: var(--white);
+    font-family: var(--font-family);
+  
+
+}
+
+nav {
+
+  display: flex;
+  background-color: var(--dark-blue); /* Ajusta al color de tu diseño */
+  justify-content: center; 
+}
+
+nav a {
+  color: var(--white);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-transform: uppercase; /* Estilo en mayúsculas */
+  transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+nav a:hover {
+  background-color: var(--light-blue); /* Color al pasar el ratón */
+  color: var(--dark-blue);
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer {
+  /* width: 100%;
+  bottom: 0;
+  padding: 20px;
+  text-align: center;
+  background: var(--dark-blue);
+  color: var(--white);
+  margin-top: auto; */
+  padding: 20px;
+  text-align: center; /* Centra los elementos del footer */
+  display: flex; /* Utiliza flexbox para organizar los elementos */
+  flex-direction: column; /* Organiza los elementos en una columna */
+  align-items: center; /* Alinea los elementos al centro */
+  gap: 10px; /* Espacio entre los elementos del footer */
+}
+
+footer a {
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+footer a:hover {
+  color: var(--accent-color); /* Un color de acento al pasar el mouse */
+}
+
+.products {
+  flex: 1;
+  background-color: var(--white);
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  order: 1px solid #ccc; /* Un borde sutil */
+  border-radius: 10px; /* Esquinas ligeramente redondeadas */
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave para profundidad */
+  background: var(--white); /* Fondo blanco para las tarjetas */
+  flex: 0 1 calc(25% - 40px); /* Ajusta el ancho de las tarjetas y el cálculo del espacio entre ellas */
+  transform: none; /*Elimina la rotación que tenías antes*/
+  transition: transform 0.3s ease-in-out; /* Transición suave para hover */
+  flex-grow: 1; /* Esto hará que cada card crezca uniformemente para llenar el espacio del contenedor */
+  flex-basis: 21%; /* Establece un ancho inicial antes de que el crecimiento de flex comience, ajusta este valor basado en cuántos elementos deseas en una fila */
+  margin: 1%; /* Proporciona un pequeño espacio entre las tarjetas */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Levanta la tarjeta ligeramente al pasar el mouse */
+}
+
+.card > header {
+  /* This is the same as `border-radius: 50px 50px 0 0 */
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  padding: 20px;
+  font-size: 1.2rem; /* Ajusta el tamaño del título de la tarjeta */
+  margin-bottom: 15px; /* Espacio debajo del título */
+}
+
+.card > p {
+  font-size: 1rem; /* Ajusta el tamaño del texto de la descripción/precio */
+  text-align: center; /* Alinea el texto al centro */
+  color: var(--dark-blue); /* Color del texto, puedes ajustarlo */
+}
+
+.card > img {
+  width: 100%; /* Asegura que la imagen cubra el ancho de la tarjeta */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 5px; /* Redondea ligeramente las esquinas de las imágenes */
+}
+
+
+/* Asegúrate de que cada sección en tu HTML tenga una clase para poder estilizarla */
+.section {
+  padding: 50px 0; /* Añade un relleno arriba y abajo */
+  margin: 0 20px; /* Añade un margen a los lados */
+}
+
+
+/* @media screen and (max-width: 768px) {
+  main,
+  nav {
+    flex-direction: column;
+  } */
+  @media screen and (max-width: 768px) {
+    .card,
+    .section,
+    nav,
+    footer {
+      flex-direction: column; /* Cambia la dirección del flex a columna para dispositivos móviles */
+      padding: 20px; /* Reduce el padding para ahorrar espacio */
+      text-align: center; /* Centra el texto */
+    }
+  
+    nav a,
+    .button {
+      display: block; /* Hace que cada enlace ocupe su propia línea */
+      margin-bottom: 10px; /* Añade espacio entre enlaces */
+    }
+  }
+  
+
+
+
+
+}
