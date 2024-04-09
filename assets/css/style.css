@@ -1,9 +1,6 @@
 /* Create CSS variables at the root of the document to be used throughout the style sheet */
 :root {
-  /* --white: #fffffffd; */
-  /* --dark-blue: #0a6ef0; */
-  /* You can use it with any value that is repeated throughout the sheet */
-  /* --border-radius: 80px; */
+ 
     --white: #ffffff;
     --dark-blue: #2b2c30; /* Cambia esto por el color exacto del diseño */
     --light-blue: #6b80a3; /* Un ejemplo, ajusta según tu diseño */
@@ -18,24 +15,45 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  flex-direction: row;
+ 
 }
 
-h1, h2 {
-  font-family: var(--font-family); /* Usa la misma fuente para coherencia */
-  font-weight: bold; /* Hace que los títulos sean más gruesos */
-}
 
 h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  padding: 20px;
   margin-bottom: 10px;
+  text-align: center;
+  padding: 40px; 
+  text-align: center; 
+  background: grey;
+  color: var(--white);
+ 
 }
 
+
+
+.about-me {
+  text-align: left; /* Alinea el texto a la izquierda para coincidir con el mockup */
+  padding: 40px;
+  background: var(--light-blue); /* Un fondo que contraste con el color de la fuente */
+  color: var(--white);
+}
+
+.about-me-img {
+  /* Añade estilos para la imagen de acuerdo al mockup */
+  width: 200px; /* O el tamaño que corresponda */
+  height: auto;
+  float: left; /* Para que el texto se alinee alrededor de la imagen */
+  margin-right: 20px; /* Espacio entre la imagen y el texto */
+  border-radius: 10px; /* Si quieres bordes redondeados */
+}
 header {
   /* padding: 40px; */
   /* text-align: center; */
@@ -44,7 +62,7 @@ header {
   /* color: var(--white); */
 
     padding: 20px; /* Ajusta según tu diseño */
-    text-align: left; /* Alineación del texto a la izquierda */
+    text-align: center; /* Alineación del texto a la izquierda */
     background: var(--dark-blue);
     color: var(--white);
     font-family: var(--font-family);
@@ -55,7 +73,7 @@ header {
 nav {
 
   display: flex;
-  background-color: var(--dark-blue); /* Ajusta al color de tu diseño */
+  background-color: rgb(48, 83, 97); /* Ajusta al color de tu diseño */
   justify-content: center; 
 }
 
@@ -113,7 +131,7 @@ footer a:hover {
 }
 
 .card {
-  order: 1px solid #ccc; /* Un borde sutil */
+  order: 1px solid #ccc; /*  borde */
   border-radius: 10px; /* Esquinas ligeramente redondeadas */
   padding: 20px;
   margin: 20px;
@@ -123,7 +141,7 @@ footer a:hover {
   transform: none; /*Elimina la rotación que tenías antes*/
   transition: transform 0.3s ease-in-out; /* Transición suave para hover */
   flex-grow: 1; /* Esto hará que cada card crezca uniformemente para llenar el espacio del contenedor */
-  flex-basis: 21%; /* Establece un ancho inicial antes de que el crecimiento de flex comience, ajusta este valor basado en cuántos elementos deseas en una fila */
+  /* flex-basis: 21%; Establece un ancho inicial antes de que el crecimiento de flex comience, ajusta este valor basado en cuántos elementos deseas en una fila */
   margin: 1%; /* Proporciona un pequeño espacio entre las tarjetas */
 }
 
@@ -150,9 +168,12 @@ footer a:hover {
   height: auto; /* Mantiene la proporción de la imagen */
   border-radius: 5px; /* Redondea ligeramente las esquinas de las imágenes */
 }
+.card.featured {
+  flex: 0 1 calc(33% - 40px); /* Hace que la tarjeta destacada sea más ancha, ajusta según tu layout */
+  order: -1; /* Asegura que se muestre primero */
+}
 
 
-/* Asegúrate de que cada sección en tu HTML tenga una clase para poder estilizarla */
 .section {
   padding: 50px 0; /* Añade un relleno arriba y abajo */
   margin: 0 20px; /* Añade un margen a los lados */
